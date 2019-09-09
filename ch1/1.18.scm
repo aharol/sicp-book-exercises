@@ -1,0 +1,10 @@
+(load "1.16.scm")
+(load "1.17.scm")
+
+(define (mult a b)
+  (define (go acc a b)
+    (cond ((= b 0) acc)
+          ((even? b) (go acc (double a) (halve b)))
+          (else (go (+ a acc) a (- b 1)))))
+  (go 0 a b)
+  )
